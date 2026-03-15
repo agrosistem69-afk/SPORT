@@ -28,7 +28,6 @@
         header {
             padding: 20px 0;
             background-color: transparent;
-            position: relative;
         }
 
         nav {
@@ -37,7 +36,6 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 20px;
-            position: relative;
         }
 
         .logo {
@@ -45,7 +43,6 @@
             font-weight: 600;
             color: #1a2e3f;
             letter-spacing: -0.5px;
-            z-index: 101;
         }
 
         .nav-links {
@@ -64,42 +61,6 @@
 
         .nav-links a:hover {
             color: #6b8c7d;
-        }
-
-        /* Бургер-меню */
-        .burger-menu {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 20px;
-            cursor: pointer;
-            z-index: 101;
-            position: relative;
-        }
-
-        .burger-menu span {
-            display: block;
-            width: 100%;
-            height: 2px;
-            background-color: #1a2e3f;
-            transition: all 0.3s ease;
-        }
-
-        .burger-menu.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .burger-menu.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .burger-menu.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        .no-scroll {
-            overflow: hidden;
         }
 
         .btn {
@@ -203,7 +164,6 @@
             50% { transform: translateY(-15px); }
         }
 
-        /* Блок проблем */
         .problems {
             padding: 80px 0;
         }
@@ -295,7 +255,6 @@
             font-weight: 500;
         }
 
-        /* Блок "Почему это происходит" */
         .why {
             padding: 80px 0;
             background-color: white;
@@ -331,7 +290,6 @@
             filter: drop-shadow(0 15px 25px rgba(0,0,0,0.05));
         }
 
-        /* Блок процесса */
         .process {
             padding: 80px 0;
         }
@@ -373,7 +331,6 @@
             font-size: 15px;
         }
 
-        /* Блок результатов */
         .results {
             padding: 80px 0;
             background-color: white;
@@ -420,7 +377,6 @@
             color: #1a2e3f;
         }
 
-        /* Методики */
         .features {
             padding: 80px 0;
             background-color: white;
@@ -475,7 +431,6 @@
             font-size: 15px;
         }
 
-        /* Обо мне */
         .about {
             padding: 80px 0;
         }
@@ -531,7 +486,6 @@
             filter: drop-shadow(0 15px 25px rgba(0,0,0,0.05));
         }
 
-        /* Контакты */
         .contact {
             padding: 80px 0;
             background-color: white;
@@ -591,18 +545,15 @@
             text-decoration: none;
             font-size: 18px;
             font-weight: 500;
-            transition: color 0.3s;
         }
 
         .contact-text a:hover {
-            color: #1a2e3f;
             text-decoration: underline;
         }
 
         .social-links {
             display: flex;
             gap: 16px;
-            margin-top: 30px;
         }
 
         .social-link {
@@ -617,7 +568,6 @@
             color: #1a2e3f;
             font-weight: bold;
             transition: all 0.3s;
-            font-size: 20px;
         }
 
         .social-link:hover {
@@ -689,7 +639,6 @@
             margin-bottom: 20px;
         }
 
-        /* Мобильные стили */
         @media (max-width: 992px) {
             .problems-grid,
             .process-grid {
@@ -698,40 +647,6 @@
         }
 
         @media (max-width: 768px) {
-            .burger-menu {
-                display: flex;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100vh;
-                background-color: #faf9f7;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 30px;
-                transition: left 0.3s ease;
-                z-index: 100;
-                margin: 0;
-                padding: 0;
-            }
-            
-            .nav-links.active {
-                left: 0;
-            }
-            
-            .nav-links li {
-                margin: 0;
-            }
-            
-            .nav-links a {
-                font-size: 24px;
-                font-weight: 500;
-            }
-
             .hero-grid,
             .about-grid,
             .contact-grid,
@@ -752,6 +667,10 @@
 
             .hero-image span {
                 font-size: 120px;
+            }
+
+            .nav-links {
+                gap: 20px;
             }
 
             .process-grid {
@@ -790,15 +709,7 @@
         <div class="container">
             <nav>
                 <div class="logo">⚡ NeuroMove</div>
-                
-                <!-- Бургер-меню -->
-                <div class="burger-menu" id="burger-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                
-                <ul class="nav-links" id="nav-links">
+                <ul class="nav-links">
                     <li><a href="#about">Обо мне</a></li>
                     <li><a href="#problems">С чем работаю</a></li>
                     <li><a href="#process">Как проходят занятия</a></li>
@@ -1030,7 +941,7 @@
             </div>
         </section>
 
-        <!-- Контакты с формой -->
+        <!-- Контакты с ФОРМОЙ (как в вашем старом коде) -->
         <section id="contact" class="contact">
             <div class="container">
                 <div class="contact-grid">
@@ -1048,4 +959,49 @@
                             </div>
                             <div class="contact-item">
                                 <div class="contact-icon">📱</div>
-                                <div
+                                <div class="contact-text">
+                                    <h4>Telegram</h4>
+                                    <a href="https://t.me/+79262323131">8 (926) 231-32-31</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="#" class="social-link">VK</a>
+                            <a href="#" class="social-link">TG</a>
+                        </div>
+                    </div>
+
+                    <!-- ФОРМА - полностью из вашего старого кода -->
+                    <div class="contact-form">
+                        <h3>Оставьте заявку</h3>
+                        <p>Я перезвоню в течение 15 минут</p>
+                        
+                        <form action="https://formspree.io/f/mgolbeka" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="phone" placeholder="Ваш телефон" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="goal" placeholder="Какая цель? (необязательно)">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" placeholder="Ваш вопрос или пожелание"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 NeuroMove. Когнитивная физкультура и нейро ЛФК.</p>
+        </div>
+    </footer>
+</body>
+</html>

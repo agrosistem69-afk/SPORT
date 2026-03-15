@@ -28,6 +28,7 @@
         header {
             padding: 20px 0;
             background-color: transparent;
+            position: relative;
         }
 
         nav {
@@ -36,6 +37,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 20px;
+            position: relative;
         }
 
         .logo {
@@ -43,6 +45,7 @@
             font-weight: 600;
             color: #1a2e3f;
             letter-spacing: -0.5px;
+            z-index: 101;
         }
 
         .nav-links {
@@ -61,6 +64,42 @@
 
         .nav-links a:hover {
             color: #6b8c7d;
+        }
+
+        /* Бургер-меню */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 101;
+            position: relative;
+        }
+
+        .burger-menu span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #1a2e3f;
+            transition: all 0.3s ease;
+        }
+
+        .burger-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .burger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .no-scroll {
+            overflow: hidden;
         }
 
         .btn {
@@ -176,7 +215,7 @@
             50% { transform: translateY(-15px); }
         }
 
-        /* НОВЫЙ БЛОК: Проблемы ребенка (полностью редактируемый) */
+        /* Блок проблем */
         .problems {
             padding: 80px 0;
         }
@@ -221,7 +260,6 @@
             margin-bottom: 40px;
         }
 
-        /* ВЫ МОЖЕТЕ ЛЕГКО РЕДАКТИРОВАТЬ КАРТОЧКИ НИЖЕ */
         .problem-card {
             background: white;
             padding: 30px 25px;
@@ -269,7 +307,7 @@
             font-weight: 500;
         }
 
-        /* НОВЫЙ БЛОК: Почему это происходит (экспертность) */
+        /* Блок "Почему это происходит" */
         .why {
             padding: 80px 0;
             background-color: white;
@@ -305,7 +343,7 @@
             filter: drop-shadow(0 15px 25px rgba(0,0,0,0.05));
         }
 
-        /* НОВЫЙ БЛОК: Как я работаю (процесс) */
+        /* Блок процесса */
         .process {
             padding: 80px 0;
         }
@@ -347,7 +385,7 @@
             font-size: 15px;
         }
 
-        /* НОВЫЙ БЛОК: Результаты */
+        /* Блок результатов */
         .results {
             padding: 80px 0;
             background-color: white;
@@ -394,7 +432,7 @@
             color: #1a2e3f;
         }
 
-        /* Методики (бывший features) */
+        /* Методики */
         .features {
             padding: 80px 0;
             background-color: white;
@@ -449,6 +487,7 @@
             font-size: 15px;
         }
 
+        /* Обо мне */
         .about {
             padding: 80px 0;
         }
@@ -504,6 +543,7 @@
             filter: drop-shadow(0 15px 25px rgba(0,0,0,0.05));
         }
 
+        /* Контакты */
         .contact {
             padding: 80px 0;
             background-color: white;
@@ -632,7 +672,6 @@
             font-size: 14px;
         }
 
-        /* Бейдж для бесплатного гайда */
         .guide-badge {
             background: #6b8c7d;
             color: white;
@@ -644,6 +683,7 @@
             margin-bottom: 20px;
         }
 
+        /* Мобильные стили */
         @media (max-width: 992px) {
             .problems-grid,
             .process-grid {
@@ -652,6 +692,40 @@
         }
 
         @media (max-width: 768px) {
+            .burger-menu {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: #faf9f7;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                transition: left 0.3s ease;
+                z-index: 100;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 0;
+            }
+            
+            .nav-links a {
+                font-size: 24px;
+                font-weight: 500;
+            }
+
             .hero-grid,
             .about-grid,
             .contact-grid,
@@ -672,10 +746,6 @@
 
             .hero-image span {
                 font-size: 120px;
-            }
-
-            .nav-links {
-                gap: 20px;
             }
 
             .process-grid {
@@ -702,6 +772,10 @@
             .problems-grid {
                 grid-template-columns: 1fr;
             }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -710,7 +784,15 @@
         <div class="container">
             <nav>
                 <div class="logo">⚡ NeuroMove</div>
-                <ul class="nav-links">
+                
+                <!-- Бургер-меню -->
+                <div class="burger-menu" id="burger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <ul class="nav-links" id="nav-links">
                     <li><a href="#about">Обо мне</a></li>
                     <li><a href="#problems">С чем работаю</a></li>
                     <li><a href="#process">Как проходят занятия</a></li>
@@ -721,7 +803,7 @@
     </header>
 
     <main>
-        <!-- ГЛАВНЫЙ ЭКРАН: теперь ориентирован на мам -->
+        <!-- Главный экран -->
         <section class="hero">
             <div class="container">
                 <div class="hero-grid">
@@ -741,58 +823,50 @@
             </div>
         </section>
 
-        <!-- НОВЫЙ БЛОК: Это про вашего ребенка? (ПОЛНОСТЬЮ РЕДАКТИРУЕМЫЙ) -->
+        <!-- Блок проблем -->
         <section id="problems" class="problems">
             <div class="container">
                 <h2 class="problems-title">Это про вашего ребенка?</h2>
                 <p class="problems-subtitle">Если узнаете себя хотя бы в одном пункте — вы по адресу</p>
                 <div class="problems-note">👇 Отметьте то, что видите у своего ребенка</div>
                 
-                <!-- НАЧАЛО БЛОКА КАРТОЧЕК - ВЫ МОЖЕТЕ МЕНЯТЬ ТЕКСТ И ЭМОДЗИ -->
                 <div class="problems-grid">
-                    <!-- Карточка 1: полностью редактируется -->
                     <div class="problem-card">
                         <div class="card-emoji">🙈</div>
                         <h3>«Неуклюжий»</h3>
                         <p>Постоянно спотыкается на ровном месте, задевает углы, роняет вещи. Избегает лестниц и неровных поверхностей.</p>
                     </div>
                     
-                    <!-- Карточка 2: полностью редактируется -->
                     <div class="problem-card">
                         <div class="card-emoji">😵💫</div>
                         <h3>«Невнимательный»</h3>
                         <p>Быстро отвлекается, не слышит с первого раза, «витает в облаках». Не может дослушать инструкцию до конца.</p>
                     </div>
                     
-                    <!-- Карточка 3: полностью редактируется -->
                     <div class="problem-card">
                         <div class="card-emoji">🌀</div>
                         <h3>«Гиперактивный»</h3>
                         <p>Не может усидеть на месте, суетливый, бесцельно бегает. Трудно успокаивается перед сном.</p>
                     </div>
                     
-                    <!-- Карточка 4: полностью редактируется -->
                     <div class="problem-card">
                         <div class="card-emoji">🤔</div>
                         <h3>«Путается»</h3>
                         <p>Путает лево-право, с трудом запоминает стихи, плохо пишет. Не может поймать мяч или прыгнуть на одной ноге.</p>
                     </div>
                     
-                    <!-- Карточка 5: полностью редактируется -->
                     <div class="problem-card">
                         <div class="card-emoji">👶</div>
                         <h3>«Задержка развития»</h3>
                         <p>Говорит хуже сверстников, поздно освоил навыки (перевороты, ползание, ходьба). Есть вопросы по координации.</p>
                     </div>
                     
-                    <!-- Карточка 6: полностью редактируется -->
                     <div class="problem-card">
                         <div class="card-emoji">😰</div>
                         <h3>«Тревожный»</h3>
                         <p>Боится новых движений, избегает активных игр, плачет, когда что-то не получается. Низкая физическая уверенность.</p>
                     </div>
                 </div>
-                <!-- КОНЕЦ БЛОКА КАРТОЧЕК - КОПИРУЙТЕ И ДОБАВЛЯЙТЕ НОВЫЕ ПРИ НЕОБХОДИМОСТИ -->
                 
                 <div class="problems-disclaimer">
                     ⚡ Если узнали своего ребенка — не переживайте. Это не лень, а особенности работы мозга и тела, которые можно скорректировать движением.
@@ -800,7 +874,7 @@
             </div>
         </section>
 
-        <!-- НОВЫЙ БЛОК: Почему это происходит? (Экспертность) -->
+        <!-- Блок "Почему это происходит" -->
         <section class="why">
             <div class="container">
                 <div class="why-grid">
@@ -817,7 +891,7 @@
             </div>
         </section>
 
-        <!-- НОВЫЙ БЛОК: Как я работаю (процесс) -->
+        <!-- Блок процесса -->
         <section id="process" class="process">
             <div class="container">
                 <h2 class="section-title">Как проходят занятия</h2>
@@ -848,14 +922,13 @@
             </div>
         </section>
 
-        <!-- НОВЫЙ БЛОК: Результаты (с возможностью добавлять реальные кейсы) -->
+        <!-- Блок результатов -->
         <section class="results">
             <div class="container">
                 <h2 class="section-title">Результаты, которые видят мамы</h2>
                 <p class="section-subtitle">Реальные истории детей, с которыми я занималась</p>
                 
                 <div class="results-grid">
-                    <!-- Кейс 1 (можно редактировать) -->
                     <div class="result-card">
                         <div class="result-header">
                             <span class="result-before">Было</span>
@@ -866,7 +939,6 @@
                         <div class="result-author">— Анна, мама Миши</div>
                     </div>
                     
-                    <!-- Кейс 2 (можно редактировать) -->
                     <div class="result-card">
                         <div class="result-header">
                             <span class="result-before">Было</span>
@@ -877,7 +949,6 @@
                         <div class="result-author">— Екатерина, мама Сони</div>
                     </div>
                     
-                    <!-- Кейс 3 (можно редактировать) -->
                     <div class="result-card">
                         <div class="result-header">
                             <span class="result-before">Было</span>
@@ -888,7 +959,6 @@
                         <div class="result-author">— Ольга, мама Димы</div>
                     </div>
                     
-                    <!-- Кейс 4 (можно редактировать) -->
                     <div class="result-card">
                         <div class="result-header">
                             <span class="result-before">Было</span>
@@ -902,7 +972,7 @@
             </div>
         </section>
 
-        <!-- Методики (адаптированные под детей) -->
+        <!-- Методики -->
         <section id="features" class="features">
             <div class="container">
                 <h2 class="section-title">Методики, которые я использую</h2>
@@ -927,7 +997,7 @@
             </div>
         </section>
 
-        <!-- О себе (обновлено) -->
+        <!-- О себе -->
         <section id="about" class="about">
             <div class="container">
                 <div class="about-grid">
@@ -945,4 +1015,39 @@
                                 <div class="stat-number">200+</div>
                                 <div class="stat-label">довольных семей</div>
                             </div>
-                       
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        🧠⚡
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Давайте знакомиться</h2>
+                        <p>Готовы помочь вашему ребенку? Оставьте заявку на диагностику, и я свяжусь с вами для подбора удобного времени.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">📞</div>
+                                <div class="contact-text">
+                                    <h4>Телефон</h4>
+                                    <a href="tel:+79777792697">+7 (977) 779-26-97</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">📱</div>
+                                <div class="contact-text">
+                                    <h4>Telegram</h4>
+                                    <a href="https://t.me/+79777792697">+7 (977) 779-26-97</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-links">
+                           

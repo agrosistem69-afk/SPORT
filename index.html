@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кордеро Гонсалес Грегорио Давидович | Нейро-ЛФК</title>
-    <meta name="description" content="Авторская методика Грегорио Давидовича. Научный и креативный подход к развитию мозга ребенка через движение. Стаж 10+ лет.">
+    <title>Кордеро Г.Г. Давидович | Профессиональная Нейро-ЛФК</title>
+    <meta name="description" content="Авторская методика Грегорио Давидовича. Научный подход к развитию мозга и коррекции поведения у детей. Стаж 10+ лет.">
     
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -49,24 +49,47 @@
 
         nav { display: flex; justify-content: space-between; align-items: center; }
 
-        .logo { text-align: left; text-decoration: none; display: flex; flex-direction: column; }
-        .logo-name { font-size: 18px; font-weight: 800; color: var(--primary-dark); text-transform: uppercase; line-height: 1.2; }
-        .logo-name span { color: var(--primary); }
-        .logo-sub { font-size: 10px; color: var(--secondary); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
-
-        .phone-link { color: var(--text); text-decoration: none; font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px; }
-
-        /* --- Hero с сгенерированным баннером --- */
-        .hero { 
-            padding: 180px 0 80px; 
-            background-image: linear-gradient(rgba(250, 247, 242, 0.8), rgba(250, 247, 242, 0.9)), url('ВСТАВЬТЕ_СЮДА_RAW_ССЫЛКУ_НА_БАННЕР_С_МОЗГОМ_С_GITHUB'); 
-            background-size: cover; 
-            background-position: center; 
+        .logo {
+            text-align: left;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
         }
-        h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.1; margin-bottom: 24px; font-weight: 800; color: var(--primary-dark); }
-        .hero p { font-size: 20px; color: var(--text-light); margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; }
 
-        /* --- Раздел Обо мне (С вашим НАСТОЯЩИМ фото) --- */
+        .logo-name {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .logo-name span { color: var(--primary); }
+
+        .logo-sub {
+            font-size: 10px;
+            color: var(--secondary);
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .phone-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- Hero --- */
+        .hero { padding: 180px 0 80px; background: radial-gradient(circle at center, #e3efee 0%, var(--bg) 100%); }
+        h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.1; margin-bottom: 24px; font-weight: 800; color: var(--primary-dark); }
+        .hero p { font-size: 20px; color: var(--text-light); margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+        /* --- Раздел Обо мне (Презентабельный) --- */
         .about-section { background: var(--white); padding: 100px 0; border-radius: 60px; margin: 40px 0; border: 1px solid rgba(0,0,0,0.05); }
         .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; text-align: left; }
         
@@ -75,8 +98,9 @@
             aspect-ratio: 4/5; 
             position: relative; 
             overflow: hidden; 
-            box-shadow: 0 30px 60px rgba(44, 82, 79, 0.2);
+            box-shadow: var(--shadow);
             border: 4px solid var(--white);
+            background: var(--primary-light); /* Фон, пока фото грузится */
         }
         
         .about-image img {
@@ -91,28 +115,23 @@
         .about-text p { margin-bottom: 20px; font-size: 17px; color: var(--text-light); }
         
         .method-highlight { 
-            background: rgba(242, 166, 99, 0.08); 
-            padding: 20px; 
-            border-radius: 20px; 
+            border-left: 4px solid var(--primary);
+            padding-left: 20px;
             margin: 30px 0; 
             color: var(--primary-dark); 
             font-weight: 600; 
-            text-align: center;
-            border-left: 4px solid var(--secondary);
+            font-style: italic;
         }
 
-        /* --- Остальные стили --- */
-        .btn { display: inline-flex; align-items: center; padding: 20px 48px; border-radius: 50px; font-weight: 700; text-decoration: none; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); font-size: 18px; border: none; cursor: pointer; }
+        /* --- Остальные стили (без изменений) --- */
+        .btn { display: inline-flex; align-items: center; padding: 20px 48px; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 18px; border: none; cursor: pointer; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .btn-primary { background: var(--primary); color: var(--white); box-shadow: 0 10px 25px rgba(61, 122, 116, 0.3); }
         .btn-primary:hover { background: var(--primary-dark); transform: scale(1.05); }
         
-        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; text-align: left; }
-        .benefit-card { background: var(--white); padding: 40px; border-radius: var(--radius-lg); border: 1px solid rgba(0,0,0,0.05); transition: 0.3s; }
-        .icon-box { width: 64px; height: 64px; background: var(--primary-light); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; color: var(--primary); }
-
-        .results-box { background: var(--white); padding: 40px; border-radius: 48px; box-shadow: var(--shadow); }
-        .result-item { padding: 20px 0; border-bottom: 1px solid #f2f2f2; text-align: left; }
-
+        .importance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 50px; }
+        .imp-card { background: var(--white); padding: 40px; border-radius: var(--radius-lg); text-align: left; transition: 0.3s; border: 1px solid rgba(0,0,0,0.05); }
+        .imp-card:hover { transform: translateY(-8px); border-color: var(--primary); }
+        
         .cta-box { background: var(--primary-dark); color: white; border-radius: 48px; padding: 60px 30px; }
         .cta-form { max-width: 450px; margin: 30px auto 0; }
         .cta-form input, .cta-form textarea { width: 100%; padding: 18px; margin-bottom: 16px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; font-family: inherit; }
@@ -125,7 +144,6 @@
             .header-contacts { display: none; }
             nav { justify-content: center; }
             .about-image { height: 350px; max-width: 300px; margin: 0 auto; }
-            .hero { padding: 120px 0 60px; }
         }
     </style>
 </head>
@@ -160,7 +178,7 @@
             <div class="container">
                 <div class="about-grid">
                     <div class="about-image">
-                        <img src="ВСТАВЬТЕ_СЮДА_RAW_ССЫЛКУ_НА_ВАШЕ_НАСТОЯЩЕЕ_ФОТО_С_GITHUB" alt="Грегорио Давидович - Основатель Нейро-ЛФК">
+                        <img src="ВСТАВЬТЕ_СЮДА_ВАШУ_RAW_ССЫЛКУ_С_GITHUB" alt="Грегорио Давидович - Эксперт по Нейро-ЛФК">
                     </div>
                     <div class="about-text">
                         <h2>Основатель метода</h2>
@@ -168,10 +186,10 @@
                         <p>Моя работа строится на понимании глубоких связей между физической активностью и формированием когнитивных способностей. Мы не просто делаем упражнения — мы точечно воздействуем на зоны мозга, отвечающие за обучение и самоконтроль.</p>
                         
                         <div class="method-highlight">
-                            «Я убежден, что даже самые сложные задачи в поведении и обучении можно решить. И движение — это самый эффективный, естественный и увлекательный способ сделать это».
+                            «Я убежден, что ключ к успешному развитию ребенка лежит в построении правильного фундамента нейронных связей. И движение — это самый эффективный и естественный способ сделать это».
                         </div>
                         
-                        <p>Этот сайт, как и моя методика, — результат многолетнего опыта и личной диагностики сотен детей. Я здесь, чтобы помочь раскрыть потенциал вашего ребенка.</p>
+                        <p>Каждая программа — это результат моей личной диагностики и многолетнего опыта работы со сложными задачами в поведении и обучении.</p>
                     </div>
                 </div>
             </div>
@@ -188,7 +206,7 @@
                     <div class="imp-card">
                         <div class="icon-box"><i data-lucide="brain-circuit" size="32"></i></div>
                         <h3>Когнитивные навыки</h3>
-                        <p>Улучшаем память, внимание, способность к чтению, письмо и усвоению школьной программы.</p>
+                        <p>Улучшаем память, внимание, способность к чтению, письму и усвоению школьной программы.</p>
                     </div>
                     
                     <div class="imp-card">
@@ -225,7 +243,7 @@
     </main>
 
     <footer>
-        <div class="container">
+        <div class="容器">
             <div class="footer-info" style="display: flex; justify-content: center; gap: 40px; margin-bottom: 30px;">
                 <a href="tel:+79262313231" style="text-decoration:none; color:var(--text); font-weight:700;">8 (926) 231-32-31</a>
                 <a href="https://t.me/+79262313231" target="_blank" style="text-decoration:none; color:var(--text); font-weight:700;">Telegram</a>

@@ -36,7 +36,6 @@
 
         .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
 
-        /* --- Навигация --- */
         header {
             position: fixed;
             top: 0;
@@ -75,18 +74,6 @@
             text-transform: uppercase;
         }
 
-        .phone-link {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-        }
-
-        /* --- Hero Section --- */
         .hero {
             padding: 180px 0 80px;
             background: radial-gradient(circle at center, #e3efee 0%, var(--bg) 100%);
@@ -104,124 +91,38 @@
             font-size: 19px;
             color: var(--text-light);
             margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        /* --- Кнопки --- */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 20px 48px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            font-size: 18px;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--white);
-            box-shadow: 0 10px 25px rgba(61, 122, 116, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: scale(1.05);
-        }
-
-        /* --- Секция: Почему это важно (НОВАЯ) --- */
-        .importance {
-            padding: 100px 0;
-            background: var(--white);
-        }
-
-        .section-header h2 {
-            font-size: clamp(28px, 5vw, 42px);
-            color: var(--primary-dark);
-            margin-bottom: 16px;
-        }
-
-        .importance-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-top: 50px;
-        }
-
-        .imp-card {
-            background: var(--bg);
-            padding: 40px 30px;
-            border-radius: var(--radius-lg);
-            transition: 0.3s;
-            text-align: left;
-        }
-
+        .importance { padding: 100px 0; background: var(--white); }
+        .importance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 50px; }
+        .imp-card { background: var(--bg); padding: 40px 30px; border-radius: var(--radius-lg); text-align: left; transition: 0.3s; }
         .imp-card:hover { transform: translateY(-10px); background: var(--primary-light); }
+        .imp-icon { width: 50px; height: 50px; background: var(--white); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--primary); }
 
-        .imp-icon {
-            width: 50px; height: 50px;
-            background: var(--white);
-            border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 20px; color: var(--primary);
+        /* --- Секция формы --- */
+        .contact-section { padding: 100px 0; background: var(--primary-dark); color: white; border-radius: 60px 60px 0 0; }
+        .cta-form { max-width: 500px; margin: 40px auto 0; text-align: left; }
+        .cta-form input, .cta-form textarea {
+            width: 100%; padding: 18px; margin-bottom: 16px; border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05);
+            color: white; font-family: inherit; font-size: 16px;
         }
-
-        .imp-card h3 { margin-bottom: 12px; color: var(--primary-dark); font-size: 20px; }
-        .imp-card p { font-size: 15px; color: var(--text-light); }
-
-        /* --- Результаты --- */
-        .results-box {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 48px;
-            box-shadow: var(--shadow);
-            margin-top: 40px;
+        .cta-form button {
+            width: 100%; background: var(--secondary); color: var(--primary-dark);
+            padding: 20px; border-radius: 16px; font-weight: 800; font-size: 18px;
+            border: none; cursor: pointer; transition: 0.3s;
         }
+        .cta-form button:hover { transform: translateY(-3px); filter: brightness(1.1); }
 
-        .result-item { padding: 20px 0; border-bottom: 1px solid #f2f2f2; text-align: left; }
-        .result-item:last-child { border-bottom: none; }
+        /* --- Контакты внизу --- */
+        .footer-contacts { display: flex; justify-content: center; gap: 60px; padding: 60px 0; flex-wrap: wrap; background: #f1ede6; }
+        .contact-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .contact-item i { color: var(--primary); }
+        .contact-item a { text-decoration: none; color: var(--text); font-weight: 800; font-size: 20px; }
 
-        /* --- Форма --- */
-        .cta-box {
-            background: var(--primary-dark);
-            color: white;
-            border-radius: 48px;
-            padding: 60px 30px;
-            margin-top: 50px;
-        }
+        footer { padding: 40px 0; background: #f1ede6; border-top: 1px solid rgba(0,0,0,0.05); }
 
-        .cta-box h2 { font-size: 36px; margin-bottom: 15px; }
-
-        .cta-btn-wa {
-            background: #25d366;
-            color: white;
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 800;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-        .cta-btn-wa:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
-
-        footer {
-            padding: 60px 0;
-            background-color: #f1ede6;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 32px; }
-            .header-contacts { display: none; }
-            nav { justify-content: center; }
-        }
+        @media (max-width: 768px) { .footer-contacts { gap: 30px; } }
     </style>
 </head>
 <body>
@@ -233,12 +134,7 @@
                     <span class="logo-name">Кордеро Г. Г. <span>Давидович</span></span>
                     <span class="logo-sub">Нейро-коррекция & ЛФК</span>
                 </a>
-                <div class="header-contacts">
-                    <a href="tel:+79262313231" class="phone-link">
-                        <i data-lucide="phone" size="18"></i>
-                        8 (926) 231-32-31
-                    </a>
-                </div>
+                <a href="tel:+79262313231" style="text-decoration:none; color:var(--text); font-weight:700;">8 (926) 231-32-31</a>
             </nav>
         </div>
     </header>
@@ -247,82 +143,73 @@
         <section class="hero">
             <div class="container">
                 <h1>Движение, которое строит интеллект</h1>
-                <p>Авторские программы нейро-коррекции от Грегорио Давидовича. Помогаю детям преодолеть сложности в обучении и поведении через физическую активность.</p>
-                <a href="https://wa.me/79262313231" class="btn btn-primary">Записаться в WhatsApp</a>
+                <p>Профессиональное развитие ребенка через когнитивную физкультуру. Стаж работы более 10 лет.</p>
+                <a href="#contact" class="cta-form button" style="display:inline-block; background:var(--primary); color:white; padding:18px 40px; border-radius:50px; text-decoration:none; font-weight:700;">Записаться на диагностику</a>
             </div>
         </section>
 
         <section class="importance">
             <div class="container">
                 <div class="section-header">
-                    <h2>Почему это нужно каждому ребенку?</h2>
-                    <p>Нейро-ЛФК — это не просто упражнения, а базовая потребность развивающегося мозга.</p>
+                    <h2>Почему это важно каждому ребенку?</h2>
                 </div>
-                
                 <div class="importance-grid">
                     <div class="imp-card">
                         <div class="imp-icon"><i data-lucide="brain-circuit"></i></div>
                         <h3>Фундамент для школы</h3>
-                        <p>Трудности с письмом и чтением часто связаны с незрелостью отделов мозга. Мы "достраиваем" их через движение.</p>
+                        <p>Устраняем причины трудностей с письмом, чтением и усидчивостью.</p>
                     </div>
-                    
                     <div class="imp-card">
                         <div class="imp-icon"><i data-lucide="battery-charging"></i></div>
-                        <h3>Энергия и внимание</h3>
-                        <p>Если ребенок быстро устает или гиперактивен — ему не хватает нейродинамики. Мы включаем "внутренний аккумулятор".</p>
+                        <h3>Энергия мозга</h3>
+                        <p>Помогаем ребенку стать более внимательным и меньше уставать.</p>
                     </div>
-                    
                     <div class="imp-card">
                         <div class="imp-icon"><i data-lucide="shield-check"></i></div>
-                        <h3>Эмоциональный контроль</h3>
-                        <p>Учим мозг вовремя тормозить лишние импульсы. Ребенок становится спокойнее, увереннее и усидчивее.</p>
+                        <h3>Самоконтроль</h3>
+                        <p>Развиваем способность управлять своими эмоциями и поведением.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section style="background: var(--primary-light);">
+        <section id="contact" class="contact-section">
             <div class="container">
-                <div class="section-header">
-                    <h2>Результаты моих учеников</h2>
-                </div>
-                <div class="results-box">
-                    <div class="result-item">
-                        <strong>Родители Никиты (7 лет):</strong>
-                        <p>«До занятий не мог просидеть и 5 минут. Спустя 3 месяца делает уроки сам, улучшился почерк и сон».</p>
-                    </div>
-                    <div class="result-item">
-                        <strong>Мама Алисы (5 лет):</strong>
-                        <p>«Перестала задевать углы и падать на ровном месте. Теперь уверенно катается на велосипеде!»</p>
-                    </div>
+                <h2>Оставьте заявку</h2>
+                <p>Я свяжусь с вами в ближайшее время для уточнения деталей.</p>
+                
+                <div class="cta-form">
+                    <form action="https://formspree.io/f/mgolbeka" method="POST">
+                        <input type="text" name="name" placeholder="Ваше имя" required>
+                        <input type="tel" name="phone" placeholder="Ваш телефон" required>
+                        <textarea name="message" rows="4" placeholder="Кратко опишите ваш вопрос"></textarea>
+                        <button type="submit">Отправить заявку</button>
+                    </form>
                 </div>
             </div>
         </section>
 
-        <section id="contact">
-            <div class="container">
-                <div class="cta-box">
-                    <h2>Начните с диагностики</h2>
-                    <p>Выявим особенности развития вашего ребенка и составим план занятий.</p>
-                    <a href="https://wa.me/79262313231" class="cta-btn-wa">
-                        <i data-lucide="message-circle"></i> Написать в WhatsApp
-                    </a>
-                </div>
+        <div class="footer-contacts">
+            <div class="contact-item">
+                <i data-lucide="phone-call" size="32"></i>
+                <span>Телефон</span>
+                <a href="tel:+79262313231">8 (926) 231-32-31</a>
             </div>
-        </section>
+            <div class="contact-item">
+                <i data-lucide="send" size="32"></i>
+                <span>Telegram</span>
+                <a href="https://t.me/+79262313231">Написать</a>
+            </div>
+        </div>
     </main>
 
     <footer>
         <div class="container">
-            <p style="font-weight: 800; color: var(--primary-dark); margin-bottom: 10px; font-size: 18px;">
-                Кордеро Гонсалес Грегорио Давидович
-            </p>
-            <p style="color: var(--text-light); font-size: 14px;">© 2026. Профессиональное нейро-развитие и ЛФК для детей.</p>
+            <p style="font-weight: 800; color: var(--primary-dark); margin-bottom: 10px;">Кордеро Гонсалес Грегорио Давидович</p>
+            <p style="color: var(--text-light); font-size: 14px;">© 2026. Когнитивное развитие и ЛФК.</p>
         </div>
     </footer>
 
-    <script>
-      lucide.createIcons();
-    </script>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
